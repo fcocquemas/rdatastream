@@ -29,7 +29,7 @@ Then load `devtools` and install `RDatastream` from Github.
 
 First, you need to define a user with your valid credentials, like this:
 
-    user <- list(username= "DS:XXXX000", password="XXX000")
+    user <- list(username = "DS:XXXX000", password = "XXX000")
 
 Then you can check which sources you have access to with these credentials:
 
@@ -39,7 +39,7 @@ Hopefully "Datastream" should be among the sources.
 
 Simple requests can then be made. Let's say, for instance, that we want the price and market value of IBM (quoted on the NYSE) on June 4th, 2007. The NYSE tickers are preceeded by `"U:"`, so the DS ticker is `"U:IBM"`.
 
-    dat <- ds(user, securities="U:IBM", fields=c("P", "MV"), date="2007-06-04")
+    dat <- ds(user, securities = "U:IBM", fields = c("P", "MV"), date = "2007-06-04")
     
 Or equivalently:
 
@@ -57,7 +57,7 @@ Which should be:
 You can also specify several tickers and date ranges instead of a single date. For instance, let's add Microsoft (`"@MSFT"`, NASDAQ tickers are preceeded by `"@"`), and let's look from June 4th, 2007 to June 4th, 2009 at the monthly frequency.
 
     dat <- ds(user, c("U:IBM", "@MSFT"), c("P", "MV"), 
-              fromDate="2007-06-04", toDate="2009-06-04", period="M")
+              fromDate = "2007-06-04", toDate = "2009-06-04", period = "M")
 
 As you can seen, each ticker is dealt with in a separate record. To get access to the resulting dataframes, just do:
 
@@ -81,24 +81,24 @@ We can run several such requests in a single API call.
     request3 <- "906187~2008-01-01~:2008-10-02~M"
     request4 <- "PCH#(U:BAC(MV))~2008-01-01~:2008-10-02~M"
     requests <- c(request1, request2, request3, request4)
-    dat <- ds(user, requests=requests)
+    dat <- ds(user, requests = requests)
     dat["Data",]
 
 ### Other useful tips with the Datastream syntax
 
 #### Get some reference information on a security with `"~XREF"`, including ISIN, industry, etc.
 
-    dat <- ds(user, requests="U:IBM~XREF") 
+    dat <- ds(user, requests = "U:IBM~XREF") 
     dat[["Data",1]]
     
 #### Get some static items like NAME, ISIN with `"~REP"`
 
-    dat <- ds(user, requests="U:IBM~=NAME,ISIN~REP") 
+    dat <- ds(user, requests = "U:IBM~=NAME,ISIN~REP") 
     dat[["Data",1]]
     
 #### Use Datastream expressions, e.g. for a moving average on 20 days
 
-    dat <- ds(user, requests="MAV#(U:IBM,20D)~2007-09-01~:2009-09-01~D") 
+    dat <- ds(user, requests = "MAV#(U:IBM,20D)~2007-09-01~:2009-09-01~D") 
     dat[["Data",1]]
 
 Any other tip we should know about?
