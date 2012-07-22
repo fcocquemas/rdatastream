@@ -72,7 +72,7 @@ The Datastream request syntax is somewhat arcane but can be more powerful in cer
 For instance, let's say I want the data from the previous example combined in a single dataframe.
 
     request1 <- "U:IBM,@MSFT~=P,MV~2007-06-04~:2009-06-04~M"
-    dat <- ds(user, requests=request1)
+    dat <- ds(user, requests = request1)
     dat[["Data",1]]
     
 We can run several such requests in a single API call.
