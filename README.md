@@ -61,7 +61,7 @@ You can also specify several tickers and date ranges instead of a single date. F
 
 As you can seen, each ticker is dealt with in a separate record. To get access to the resulting dataframes, just do:
 
-   dat["Data",]
+    dat["Data",]
 
 ## Advanced use
 
