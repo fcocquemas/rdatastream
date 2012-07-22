@@ -86,17 +86,17 @@ We can run several such requests in a single API call.
 
 ### Other useful tips with the Datastream syntax
 
-1. Get some reference information on a security with `"~XREF"`, including ISIN, industry, etc.
+#### Get some reference information on a security with `"~XREF"`, including ISIN, industry, etc.
 
     dat <- ds(user, requests="U:IBM~XREF") 
     dat[["Data",1]]
     
-1. Get some static items like NAME, ISIN with `"~REP"`
+#### Get some static items like NAME, ISIN with `"~REP"`
 
     dat <- ds(user, requests="U:IBM~=NAME,ISIN~REP") 
     dat[["Data",1]]
     
-1. Use Datastream expressions, e.g. for a moving average on 20 days
+#### Use Datastream expressions, e.g. for a moving average on 20 days
 
     dat <- ds(user, requests="MAV#(U:IBM,20D)~2007-09-01~:2009-09-01~D") 
     dat[["Data",1]]
