@@ -1,4 +1,4 @@
-#'
+#' A R interface for Datastream and Thomson Dataworks Enterprise.
 #'
 #' @docType package
 #' @name RDatastream
