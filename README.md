@@ -37,10 +37,10 @@ Then you can check which sources you have access to with these credentials:
 
 Hopefully "Datastream" should be among the sources.
 
-Simple requests can then be made. Let's say, for instance, that we want the price and market value of IBM (quoted on the NYSE) on June 4th, 2007. The NYSE tickers are preceeded by `"U:"`, so the DS ticker is `"U:IBM"`.
+Simple requests can then be made. Let's say, for instance, that we want the price and market value of IBM (quoted on the NYSE) on June 4th, 2007. The NYSE tickers are preceded by `"U:"`, so the DS ticker is `"U:IBM"`.
 
     dat <- ds(user, securities = "U:IBM", fields = c("P", "MV"), date = "2007-06-04")
-    
+
 Or equivalently:
 
     dat <- ds(user, "U:IBM", c("P", "MV"), "2007-06-04")
@@ -54,7 +54,7 @@ Which should be:
       CCY       DATE                DISPNAME FREQUENCY       MV      P SYMBOL
     1  U$ 2007-06-04 INTERNATIONAL BUS.MCHS.         D 157733.1 106.23  U:IBM
 
-You can also specify several tickers and date ranges instead of a single date. For instance, let's add Microsoft (`"@MSFT"`, NASDAQ tickers are preceeded by `"@"`), and let's look from June 4th, 2007 to June 4th, 2009 at the monthly frequency.
+You can also specify several tickers and date ranges instead of a single date. For instance, let's add Microsoft (`"@MSFT"`, NASDAQ tickers are preceded by `"@"`), and let's look from June 4th, 2007 to June 4th, 2009 at the monthly frequency.
 
     dat <- ds(user, c("U:IBM", "@MSFT"), c("P", "MV"), 
               fromDate = "2007-06-04", toDate = "2009-06-04", period = "M")
@@ -72,7 +72,7 @@ The Datastream request syntax is somewhat arcane but can be more powerful in cer
 For instance, let's say I want the data from the previous example combined in a single dataframe.
 
     request1 <- "U:IBM,@MSFT~=P,MV~2007-06-04~:2009-06-04~M"
-    dat <- ds(user, requests=request1)
+    dat <- ds(user, requests = request1)
     dat[["Data",1]]
     
 We can run several such requests in a single API call.
