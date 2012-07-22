@@ -14,7 +14,7 @@
 #' @param requests a vector of requests following the Datastream format.
 #'   If set, ignores all other parameters (except user). More flexible
 #'   syntax, notably for the use of expressions.
-#' @param toDataFrame boolean whether to output a dataframe in the "Data"
+#' @param asDataFrame boolean whether to output a dataframe in the "Data"
 #'   row of the returned matrix.
 #' @param source default "Datastream", useful if you want to access another
 #'   Dataworks Enterprise data source. You can obtain the list of sources
@@ -36,7 +36,7 @@
 #' ds(user, requests=requests)
 ds <- function(user, securities=NULL, fields=NULL, 
                date=NULL, fromDate=NULL, toDate=NULL,
-               period="D", requests=NULL, toDataFrame=TRUE,
+               period="D", requests=NULL, asDataFrame=TRUE,
                source="Datastream") {
   wsdl <- "http://dataworks.thomson.com/Dataworks/Enterprise/1.0/webServiceClient.asmx"
   xmlns <- "http://xml.thomson.com/financial/v1/tools/distribution/dataworks/enterprise/2003-07/"
@@ -103,7 +103,7 @@ ds <- function(user, securities=NULL, fields=NULL,
   records <- sapply(records, xmlToList)
   
   # Convert the obtained data to a dataframe
-  if(toDataFrame) {
+  if(asDataFrame) {
     records <- rbind(records, apply(records, 2, function(record) {
       as.data.frame(sapply(names(record$Fields), function(fieldname){
         field <- record$Fields[[fieldname]]
