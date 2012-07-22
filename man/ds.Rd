@@ -4,7 +4,7 @@
 \usage{
   ds(user, securities = NULL, fields = NULL, date = NULL,
     fromDate = NULL, toDate = NULL, period = "D",
-    requests = NULL, toDataFrame = TRUE,
+    requests = NULL, asDataFrame = TRUE,
     source = "Datastream")
 }
 \arguments{
@@ -31,7 +31,7 @@
   (except user). More flexible syntax, notably for the use
   of expressions.}
 
-  \item{toDataFrame}{boolean whether to output a dataframe
+  \item{asDataFrame}{boolean whether to output a dataframe
   in the "Data" row of the returned matrix.}
 
   \item{source}{default "Datastream", useful if you want to
