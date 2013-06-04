@@ -108,6 +108,9 @@ ds <- function(user, securities=NULL, fields=NULL,
       as.data.frame(sapply(names(record$Fields), function(fieldname){
         field <- record$Fields[[fieldname]]
         
+        # Fix some NULL fields when e.g. no currency (price index variable)
+        if(is.null(field)) field <- NA
+        
         if(fieldname == "DATE") {
           list(as.Date(unlist(field)))
         } 

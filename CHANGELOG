@@ -1,0 +1,5 @@
+04/06/2013
+==========
+- BUGFIX: Missing currency (e.g. price index field) was causing a bug in the
+  conversion to data.frame. All NULL fields are now changed to NA. Thanks to 
+  Claudio Ortelli for finding the issue.
