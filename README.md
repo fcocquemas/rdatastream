@@ -31,8 +31,9 @@ First, you need to define a user with your valid credentials, like this:
 
     user <- list(username = "DS:XXXX000", password = "XXX000")
 
-Then you can check which sources you have access to with these credentials:
+Then you can load the library check which sources you have access to with these credentials:
 
+    library(RDatastream)
     dsSources(user)
 
 Hopefully "Datastream" should be among the sources.
@@ -94,6 +95,11 @@ We can run several such requests in a single API call.
 #### Get some static items like NAME, ISIN with `"~REP"`
 
     dat <- ds(user, requests = "U:IBM~=NAME,ISIN~REP") 
+    dat[["Data",1]]
+
+#### Convert the currency e.g. to Euro with `"~~EUR"`
+
+    dat <- ds(user, requests = "U:IBM(P)~~EUR~2007-09-01~:2009-09-01~D") 
     dat[["Data",1]]
     
 #### Use Datastream expressions, e.g. for a moving average on 20 days
