@@ -107,6 +107,8 @@ We can run several such requests in a single API call.
     dat <- ds(user, requests = "MAV#(U:IBM,20D)~2007-09-01~:2009-09-01~D") 
     dat[["Data",1]]
 
+User-defined expressions require using a syntax similar to: `E237(U:IBM)~2010-01-01~:2015-01-01~D~#USERNAME` (thanks @abbanerjeersm).
+
 Any other tip we should know about?
 
 ## Resources
