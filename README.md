@@ -23,7 +23,7 @@ For now, the easiest way to install RDatastream is to use the `devtools` package
 Then load `devtools` and install `RDatastream` from Github.
 
     library(devtools)
-    install_github("RDatastream", username = "fcocquemas")
+    install_github("fcocquemas/RDataStream")
 
 ## Basic use
 
