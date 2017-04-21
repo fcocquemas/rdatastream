@@ -115,7 +115,7 @@ ds <- function(user, securities=NULL, fields=NULL,
           list(as.Date(unlist(field)))
         } 
         else if(is.list(field)) {
-          list(as.numeric(gsub("NaN", NA, as.character(unlist(field)))))
+          list(type.convert(gsub("NaN", NA, as.character(unlist(field)))))
         }
         else {
           list(rep(field, 1, length(record$Fields$DATE)))

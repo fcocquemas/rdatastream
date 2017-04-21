@@ -1,3 +1,7 @@
+21/04/2017
+==========
+- BUGFIX: Do not assume the fields are numeric (introduced NA in some cases). Thanks to Matthias Leute for reporting the issue.
+
 04/06/2013
 ==========
 - BUGFIX: Missing currency (e.g. price index field) was causing a bug in the
