@@ -2,8 +2,8 @@ Package: RDatastream
 Type: Package
 Title: A R interface for Datastream and Thomson Dataworks Enterprise
 Version: 0.2
-Author: François Cocquemas <francois.cocquemas@gmail.com>
-Maintainer: François Cocquemas <francois.cocquemas@gmail.com>
+Author: Francois Cocquemas <francois.cocquemas@gmail.com>
+Maintainer: Francois Cocquemas <francois.cocquemas@gmail.com>
 Description: RDatastream is a R interface to the Thomson Dataworks Enterprise
     SOAP API (non free), with some convenience functions for retrieving
     Datastream data specifically. This package requires valid credentials
