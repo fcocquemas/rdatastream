@@ -19,6 +19,9 @@
 #' @param source default "Datastream", useful if you want to access another
 #'   Dataworks Enterprise data source. You can obtain the list of sources
 #'   you have access to by using the dsSources() function in this package.
+#' @param htmlEscape boolean whether the provided parameters should be html 
+#'   escaped (ie. & replaced by &amp;). Defaults to FALSE to maintain 
+#'   backwards compatibility where people provide already escaped strings
 #' @return matrix with the returned data, columns being individual requests
 #'   and rows "Source", "Instrument", "StatusType", "StatusCode", 
 #'   "StatusMessage", "Fields" and "Data".
@@ -37,7 +40,7 @@
 ds <- function(user, securities=NULL, fields=NULL, 
                date=NULL, fromDate=NULL, toDate=NULL,
                period="D", requests=NULL, asDataFrame=TRUE,
-               source="Datastream") {
+               source="Datastream", htmlEscape=FALSE) {
   wsdl <- "http://dataworks.thomson.com/Dataworks/Enterprise/1.0/webServiceClient.asmx"
   xmlns <- "http://xml.thomson.com/financial/v1/tools/distribution/dataworks/enterprise/2003-07/"
   
@@ -59,6 +62,11 @@ ds <- function(user, securities=NULL, fields=NULL,
       }
       requests <- paste(requests, "~", period, sep="")
     }
+  }
+  
+  if (htmlEscape) {
+    # Will only affect special characters (like &, <, >) in symbol/series names
+    requests <- htmltools::htmlEscape(requests)
   }
   
   # SOAP headers
