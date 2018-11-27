@@ -5,7 +5,7 @@
   ds(user, securities = NULL, fields = NULL, date = NULL,
     fromDate = NULL, toDate = NULL, period = "D",
     requests = NULL, asDataFrame = TRUE,
-    source = "Datastream")
+    source = "Datastream", htmlEscape=FALSE)
 }
 \arguments{
   \item{user}{list with values username and password.}
@@ -38,6 +38,11 @@
   access another Dataworks Enterprise data source. You can
   obtain the list of sources you have access to by using
   the dsSources() function in this package.}
+  
+  \item{htmlEscape}{boolean whether the provided parameters 
+  should be html escaped (ie. & replaced by &amp;). 
+  Defaults to FALSE to maintain backwards compatibility 
+  where people provide already escaped strings}
 }
 \value{
   matrix with the returned data, columns being individual

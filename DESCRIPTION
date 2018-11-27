@@ -11,7 +11,8 @@ Description: RDatastream is a R interface to the Thomson Dataworks Enterprise
 License: MIT
 Imports:
     XML,
-    RCurl
+    RCurl,
+    htmltools
 Depends:
     R (>= 2.14)
 Collate:
