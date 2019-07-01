@@ -2,6 +2,13 @@
 
 RDatastream is a R interface to the [Thomson Dataworks Enterprise](http://dataworks.thomson.com/Dataworks/Enterprise/1.0/) SOAP API (non free), with some convenience functions for retrieving Datastream data specifically. This package requires valid credentials for this API.
 
+# ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) THIS API IS DEPRECATED AND THIS PACKAGE WILL NOT WORK AS OF JULY 1, 2019!
+
+This package needs to be ported to [Datastream Web Services (DSWS)](https://product.datastream.com/DswsClient/Docs/Default.aspx). Note that the credentials are different: DSWS requires a child ID (beginning with Z) or a Datastream Professional ID.
+
+---
+
+
 ## Notes
 
 * This API happens to be the one used by the [MATLAB datafeed toolbox](http://www.mathworks.fr/help/toolbox/datafeed/datastream.html), so if you have used it before, this package should work as well.
