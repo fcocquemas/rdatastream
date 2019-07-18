@@ -7,6 +7,8 @@
 #' user <- list(username= "DS:XXXX000", password="XXX000")
 #' dsSources(user)
 dsSources <- function(user) {
+  stop("THIS API IS DEPRECATED AND THIS PACKAGE WILL NOT WORK AS OF JULY 1, 2019!")
+  
   wsdl <- "http://dataworks.thomson.com/Dataworks/Enterprise/1.0/webServiceClient.asmx"
   xmlns <- "http://xml.thomson.com/financial/v1/tools/distribution/dataworks/enterprise/2003-07/"
  
